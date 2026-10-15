@@ -8,7 +8,7 @@ It ships with a starter set of rules taken from one engineer's daily setup. Noth
 
 1. Open your coding agent in a repo you work in, so it can read the real codebase.
 2. Paste the contents of [PROMPT.md](PROMPT.md) as your first message.
-3. Answer its questions. It covers one section per message.
+3. Answer its questions, section by section or all at once.
 4. When it finishes, open a fresh session and ask what rules it has about pushing code and code comments. If your rules come back, they load on their own.
 
 ## What you end up with
@@ -16,7 +16,7 @@ It ships with a starter set of rules taken from one engineer's daily setup. Noth
 - A user-level instructions file with your personal preferences, loaded in every project.
 - A repo-level instructions file with that repo's commands and conventions.
 - Automated checks (hooks, git hooks, or CI) for the two or three rules you care about most.
-- Optionally, a reusable skill or command for the "extends an existing pattern" checklist, if your agent supports them.
+- The "extends an existing pattern" checklist as an on-demand skill, command, or file, kept out of what loads every session.
 
 ## What the prompt covers
 
@@ -36,6 +36,8 @@ It ships with a starter set of rules taken from one engineer's daily setup. Noth
 **It's an interview, not an install.** Rules copied from someone else's setup often don't match how you work. The agent asks about every rule and records your answer, so the final file reflects your choices.
 
 **The interview starts from your codebase.** Before asking anything, the agent reads your existing instructions, linters, CI, and recent commits. It skips rules a linter already enforces, and it flags any starter rule that conflicts with what your repo already does.
+
+**The auto-loaded file stays small.** The agent reads it at the start of every session, so every line has an ongoing cost. The prompt caps it at about 150 lines and moves task-specific rules, like the pattern checklist, into files the agent reads only when the task comes up.
 
 **Enforcement beats prose.** A written rule works only when the agent remembers it. The prompt asks which two or three rules you'd be most annoyed to see broken and turns those into automated checks. Each check gets its own test cases, because a check that silently matches nothing looks exactly like clean output.
 

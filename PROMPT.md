@@ -24,7 +24,7 @@ Read enough of the current repo to see its real conventions: recent commits and 
 
 ### Phase 3: Interview me
 
-Go through the starter rules one section per message. For each rule, ask: keep, change, or drop. When you have a recommendation, give it with a one-line reason based on what you saw in Phase 2.
+First ask how I want to go through the starter rules: one section per message, or all at once so I can mark the ones to change or drop. Either way, for each rule ask: keep, change, or drop. When you have a recommendation, give it with a one-line reason based on what you saw in Phase 2.
 
 After the starter sections, ask me:
 
@@ -36,6 +36,7 @@ After the starter sections, ask me:
 ### Phase 4: Write the rules
 
 - Personal preferences go in the user-level location so they follow me across projects. Repo facts go in the repo's file. Use only locations your tool loads automatically at the start of every session; if a file must be referenced or imported to load, wire that up too.
+- Keep each auto-loaded file under about 150 lines, because you read it at the start of every session. Rules that only matter for specific tasks go in separate files that you read when the task comes up, with a one-line pointer from the main file saying when.
 - One or two lines per rule. Add a short "why" when the reason isn't obvious: a rule with a reason gets applied correctly to cases it didn't name.
 - Phrase rules as what to do. Add a short good and bad example where a rule is easy to misread.
 - No duplicates and no contradictions. If two rules conflict, ask me which wins.
@@ -47,7 +48,7 @@ Ask me which 2 or 3 rules I'd be most annoyed to see broken. For each one, offer
 
 If you build a check, also write a few test cases for it (inputs that should pass and inputs that should be blocked). A check that silently matches nothing looks exactly like clean output.
 
-If your tool supports reusable skills or commands, offer to package the "Before presenting a change that extends an existing pattern" checklist below as one that runs on matching changes.
+Put the "Before presenting a change that extends an existing pattern" checklist below in its own file, not an auto-loaded one. If your tool supports reusable skills or commands, package it as one that runs on matching changes. Otherwise save it as a separate file, with a one-line pointer from the main file saying when to read it.
 
 ### Phase 6: Set up the feedback loop
 
